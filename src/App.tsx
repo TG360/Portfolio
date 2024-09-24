@@ -1,18 +1,26 @@
-import { ModeToggle } from './components/mode-toggle'
-import './index.css'
-import { ThemeProvider } from "./components/theme-provider"
-function App() {
+// App.tsx
+import React from 'react';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import Projects from './pages/Projects';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './components/theme-provider';
 
+const App: React.FC = () => {
   return (
-<ThemeProvider>
-  <main className="w-full min-h-screen flex items-center justify-center p-5">
-    <div className="flex items-center justify-center w-full min-h-[calc(100vh-2.5rem)] border border-slate-200">
-        <ModeToggle />
-    </div>
-  </main>
-</ThemeProvider>
+    <ThemeProvider>
+      <Router>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects" element={<Projects />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </ThemeProvider>
+  );
+};
 
-  )
-}
-
-export default App
+export default App;
