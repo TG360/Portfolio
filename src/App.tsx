@@ -6,10 +6,12 @@ import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './components/theme-provider';
+import { Toaster } from "./components/ui/toaster"
 
 const App: React.FC = () => {
   return (
     <ThemeProvider>
+      <Toaster />
       <Router>
         <Layout>
           <Routes>

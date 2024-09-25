@@ -67,7 +67,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground primary-text text-white;
+    @apply bg-background text-foreground primary-text text-black dark:text-white; 
   }
 }
 .primary-text {
@@ -80,5 +80,20 @@
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px; /* Adjust the thickness */
+  background-color: currentColor;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.hover-underline:hover::after {
+  width: 100%;
 }
 
